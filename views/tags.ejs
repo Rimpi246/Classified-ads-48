@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('partials/datatables'); %>
+</head>
+
+<body>
+  <div class="container">
+    <%- include('partials/navbar'); %>
+    <h1>
+      <%= title %>
+    </h1>
+    <p>
+      Here you can choose a specific tag for donations section. Please take your time to choose the best tag that suits your item.
+    </p>
+    <h3>
+      Select language first
+    </h3>
+    <select>
+      <option value="" selected>🌐</option>
+      <option value="get_tags_en">🇬🇧</option>
+      <option value="get_tags_ar">🇩🇿</option>
+      <option value="get_tags_fr">🇫🇷</option>
+    </select>
+    <h3>
+      Navigate in table
+    </h3>
+    <table id="table_id" class="display nowrap" width="100%">
+    </table>
+    <h3>
+      Pick the right row then copy
+    </h3>
+    <p class="grouped">
+      <input  id="events" id="events" type="text" value="">
+      <button class="copybtn icon-only" type="button" data-clipboard-target="#events" aria-label="Copy to clipboard"><img src="https://icongr.am/feather/copy.svg?size=16"></button>
+    </p>
+    <p class="next-step">
+      
+    </p>
+    <%- include('partials/footer'); %>
+  </div>
+</body>
+<%- include('partials/afterbody_datatable'); %>
+<script>
+  {
+    const scriptElement = document.createElement("script")
+    scriptElement.src = "/javascripts/tags.js"
+    document.body.appendChild(scriptElement)
+  }
+</script>
+</html>

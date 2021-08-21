@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('partials/head'); %>
+</head>
+
+<body lang="en">
+  <div id="upper_left" class="svg"></div>
+  <div id="upper_right" class="svg"></div>
+  <!-- <div id="lower_left"></div> -->
+  <div id="lower_right" class="svg"></div>
+  <div class="container">
+    <%- include('partials/navbar'); %>
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Welcome to <%= title %>
+    </p>
+    <br>
+    <div id="game-map" ></div>
+    <%- include('partials/footer'); %>
+  </div>
+</body>
+<%- include('partials/afterbody'); %>
+
+</html>

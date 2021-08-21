@@ -1,0 +1,335 @@
+:root {
+  --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tiles-colors {
+      filter:var(--map-tiles-filter, none);
+}
+}
+
+/* input[type="date"] {
+  width: auto !important;
+} */
+/* 
+input {
+  background-color: #309ae641;
+} */
+
+/* button {
+  color: #eee;
+  background-color: #233a4b;
+} */
+
+label {
+  padding-top: 1% !important;
+}
+
+/* input[type="checkbox"] {
+  margin-top: 1% !important;
+} */
+
+code {
+  opacity: 50%;
+}
+
+/* select {
+  width: 4rem !important;
+} */
+
+h1 {
+  font-family: News Cycle;
+}
+
+h3 {
+  font-family: News Cycle;
+}
+
+p {
+  font-family: News Cycle;
+}
+
+blockquote {
+  font-family: News Cycle;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+pre {
+  font-family: News Cycle;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5667px;
+}
+
+.header {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 80px;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 72px;
+  margin-bottom: 20px;
+}
+
+.head {
+  text-align: center;
+  position: relative;
+}
+
+.subhead {
+  text-transform: uppercase;
+  border-bottom: 2px solid #2f2f2f;
+  border-top: 2px solid #2f2f2f;
+  padding: 12px 0 12px 0;
+}
+
+.navbar {
+  margin-bottom: 3rem;
+}
+
+.sexybox {
+  position: relative;
+  width: 12%;
+  left: 10px;
+  border: 3px double #2f2f2f;
+  padding: 10px 15px 10px 15px;
+  line-height: 20px;
+  display: inline-block;
+  margin: 0 50px 20px -360px;
+}
+
+.card {
+  border-style: dashed;
+  border-width: thin;
+  border-color: #a19f9a;
+  background-color: #f5eabf28;
+}
+
+.card.donations {
+  background-color: rgba(110, 63, 1, 0.2);
+}
+
+.card.skills {
+  background-color: rgba(127, 255, 212, 0.2);
+}
+
+.card.blogs {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+#characters-left {
+  font-family: Lucida Console;
+  background-color: antiquewhite;
+  color: black;
+}
+
+.pell-content {
+  background-color: #309ae641;
+}
+
+/* font picker */
+
+.dropdown-button, .font-list-item {
+  color: black !important;
+}
+
+#listing-map {
+  height: 400px;
+  z-index: 99;
+}
+
+#delimitations-map {
+  height: 400px;
+  z-index: 99;
+}
+
+#geo-search-map {
+  height: 400px;
+  z-index: 99;
+}
+
+#game-map {
+  height: 400px;
+  z-index: 99;
+}
+/* Style the Image Used to Trigger the Modal */
+
+#imgg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#imgg:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 100;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+
+/* The Close Button */
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #upper_left {
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-image: url("/images/1546457182.svg");
+    background-repeat: no-repeat;
+  }
+  #upper_right {
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background-image: url("/images/1546457622.svg");
+    background-repeat: no-repeat;
+  }
+  #lower_right {
+    width: 125px;
+    height: 125px;
+    bottom: 5%;
+    right: 5%;
+    position: fixed;
+    background-image: url("/images/1548790076.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.loading-text {
+  font-size: 60px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+/* Image miniatures grid */
+.img-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-left: 10px;
+}
+
+/* position: relative;
+min-width: 22%;
+border: 1px solid #efefef;
+margin-bottom: 48px;
+background-color: #fdfdfd; */
+
+.img-radio {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.center {
+  text-align: center;
+  margin: 2rem;
+  width: 100%;
+  border: 0.1rem dotted green;
+  padding: 1rem;
+}

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" data-trans="(today)" href="/">Classified-ads-48</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link"  data-trans="(categories)" href="/categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(donations)" href="/listings/donations">Donations</a></li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(skills)" href="/listings/skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(blogs)" href="/listings/blogs">Blogs</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Links
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item"  data-trans="(tags)" href="/listings/tags">Tags</a></li>
+                        <li><a class="dropdown-item"  data-trans="(so-c)" href="https://so-c.me/" target="_blank" rel="noreferrer noopener">Digital card 🔗</a></li>
+                        <li><a class="dropdown-item"  data-trans="(weather)" href="https://www.weathervenue.com/ar#algeria" target="_blank" rel="noreferrer noopener">Weather 🔗</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(about)" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(howto)" href="/howto">How?</a></li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(contact)" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#97;&#99;&#108;&#111;&#117;&#100;&#49;&#52;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">Contact</a></li>
+                <li class="nav-item"><a class="nav-link"  data-trans="(policy)" href="/policy">Policies</a></li>
+                <li class="nav-item"><a class="nav-link"  href="javascript:void(0)" id="theme-switch" onclick="switchMode(this)">☀️</a></li>
+                <li class="nav-item">
+                    <select class="selectpicker" onchange="javascript:langSelect(this)" style="width:min-content" >
+                        <option value="en" data-content='English'>🇬🇧</option>
+                        <option value="ar" data-content='عربية'>🇩🇿</option>
+                        <option value="fr" data-content='Français'>🇫🇷</option>
+                    </select>
+                </li>
+                <% if(typeof user == 'undefined'){ %>
+                    <li class="nav-item"><a class="nav-link" data-trans="(login)" href="/login">Login 🔒</a></li>
+                <% } else { %>
+                    <li class="nav-item"><a class="nav-link" href="/listings/user">Welcome <%= user %></a></li>
+                <% }%>
+            </ul>
+            <form class=".form-inline">
+                    <input id="autoComplete" class="form-control mr-sm-2" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off"
+                        autocapitalize="off">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<h1 class="loading-text">0%</h1>

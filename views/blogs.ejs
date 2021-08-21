@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('partials/head'); %>
+</head>
+
+<body>
+  <div class="container">
+
+    <%- include('partials/navbar'); %>
+
+    <h1>
+      <%= title %>
+    </h1>
+
+    <section id="docs">
+      <header class="row">
+        <div class="col is-vertical-align">
+          <h2 class="is-marginless">Docs</h2>
+        </div>
+        <div class="col is-right">
+          <nav class="tabs">
+            <% for(var i=0; i < sections.length; i++) { %>
+              <a href="#<%= sections[i].id %>"><%= sections[i].id %></a>
+            <% } %>
+          </nav>
+        </div>
+      </header>
+      <br>
+      <p>
+        In "Classified-ads-48", we organise posts in three sections, where you can search and also post after logging using only your email. Sections are Donations, skills and blogs.
+      </p>
+      <p>
+        The website itself is not a business entity; This is why we add no Advertisements and it is totally free to use. We could become a business entity in future. 
+      </p>
+    </section>
+
+    <% for(var i=0; i < sections.length; i++) { %>
+      <h3 id="<%= sections[i].id %>"><%= sections[i].id %></h3>
+      <p><%- sections[i].html %></p>
+    <% } %>
+    <%- include('partials/footer'); %>
+  </div>
+  <%- include('partials/prepare_js_variables'); %>
+</body>
+<%- include('partials/afterbody'); %>
+
+</html>

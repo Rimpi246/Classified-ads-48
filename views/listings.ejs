@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+<div id="upper_left" class="svg"></div>
+<div id="upper_right" class="svg"></div>
+<!-- <div id="lower_left"></div> -->
+<div id="lower_right" class="svg"></div>
+<div class="container">
+
+    <%- include('partials/navbar'); %>
+
+    <div class="head">
+        <div class="headerobjectswrapper">
+            <div class="sexybox"><span style="font-style: italic; font-size: smaller;"><%= intro %></div>
+            <div class="header"><%= title %></div>
+        </div>
+        <div class="subhead">
+            <span data-trans="|date|">Algeria, somewhere - </span><%= new Intl.DateTimeFormat('ar-DZ', {
+                year: 'numeric',
+                month: 'long',
+                day: '2-digit'
+            }).format(new Date()) %>
+        </div>
+    </div>
+    <%- include('partials/geo_search_map'); %>
+    <details>
+        <summary data-trans="(search)">Search</summary>
+        <h2 data-trans="(fuzzysearch)">Fuzzy search</h2>
+        <form action="/listings/gwoogl" method="POST">
+            <div class="row">
+                <!-- <label for="title_desc">Title and description</label> -->
+                <div class="col-auto">
+                    <label for="exact" data-trans="(exact?)">Exact ?</label>
+                    <input type="checkbox" class="query" name="exact" id="exact">
+                </div>
+                <div class="col-auto">
+                    <input name="title_desc" value="" placeholder="Title or description"
+                        data-trans="placeholder=(title|description);html=(title|description)">
+                </div>
+                <div class="col-auto">
+                    <input name="div_q" value="" placeholder="Divisions"
+                        data-trans="placeholder=(divisions);html=(divisions)">
+                </div>
+                <div class="col-auto">
+                    <label for="since" data-trans="(sincedate)">Since date</label>
+                    <input type="date" name="since" value="2021-04-01" min="2021-04-01">
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-primary" data-trans="(search)">Search</button>
+                </div>
+            </div>
+        </form>
+    </details>
+    <br>
+    <div class="search">
+        <label for="qsearch">Highlight listings</label>
+        <input type="qsearch" name="qsearch" placeholder="Today listings"
+               data-trans="placeholder=(today-listings);html=(today-listings)" required>
+    </div>
+
+    <br>
+    <hr>
+    <h2>Listings</h2>
+    <div class="row">
+        <% for (var i = 0; listings.length> 0 && i < listings.length && i < 10 ; i++) { %>
+        <div class="col-sm <%= listings[i].section %>" id="<%= listings[i]._id %>">
+          <div class="card">
+            <h5 class="card-title" dir="auto"><a href='/listings/id/<%= listings[i]._id %>'><%= listings[i].title.charAt(0).toUpperCase() + listings[i].title.slice(1) %></a></h5> 
+            <p class="card-text" dir="auto"><%- listings[i].desc.slice(0,300) %> ...</p>
+            <div class="card-body">
+              <code><%= new Date(parseInt(listings[i]._id.toString().substring(0, 8), 16) * 1000).toISOString().slice(0,10) %></code>
+              <% for (var j=0; listings[i].tags && listings[i].tags.length > 0 && j < listings[i].tags.length ; j++) { %>
+                <a href="/tag/<%- listings[i].tags[j] %>"><span class="badge bg-secondary"><%- listings[i].tags[j] %></span></a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>
+    <%- include('partials/pagination'); %>
+    <%- include('partials/add_donation'); %>
+    <%- include('partials/add_skill'); %>
+
+    <%- include('partials/prepare_js_variables'); %>
+    <%- include('partials/footer'); %>
+</div>
+
+</body>
+<%- include('partials/afterbody'); %>
+</html>

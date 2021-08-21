@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('partials/head'); %>
+</head>
+
+<body lang="en">
+  <div id="upper_left" class="svg"></div>
+  <div id="upper_right" class="svg"></div>
+  <!-- <div id="lower_left"></div> -->
+  <div id="lower_right" class="svg"></div>
+  <div class="container">
+    <%- include('partials/navbar'); %>
+    <div class="jumbotron">
+      <h1 class="display-4"><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+    </div>
+    <br>
+    <div id="delimitations-map" ></div>
+
+    <div class="search">
+      <label for="qsearch">Highlight listings</label>
+      <input type="qsearch" name="qsearch" placeholder="Today listings" required>
+    </div>
+    <br>
+    <div class="row">
+      <% for (var i=0; listings.length> 0 && i < listings.length && i < 100 ; i++) { %>
+      <div class="col-sm <%= listings[i].section %>" id="<%= listings[i]._id %>">
+        <div class="card">
+          <h5 class="card-title" dir="auto"><a href='/listings/id/<%= listings[i]._id %>'><%= listings[i].title.charAt(0).toUpperCase() + listings[i].title.slice(1) %></a></h5> 
+          <p class="card-text" dir="auto"><%- listings[i].desc.slice(0,300) %> ...</p>
+          <div class="card-body">
+            <code><%= new Date(parseInt(listings[i]._id.toString().substring(0, 8), 16) * 1000).toISOString().slice(0,10) %></code>
+            <% for (var j=0; listings[i].tags && listings[i].tags.length > 0 && j < listings[i].tags.length ; j++) { %>
+              <a href="/tag/<%- listings[i].tags[j] %>"><span class="badge bg-secondary"><%- listings[i].tags[j] %></span></a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <%- include('partials/pagination'); %>
+    <%- include('partials/footer'); %>
+  </div>
+  
+</body>
+<%- include('partials/afterbody'); %>
+
+</html>

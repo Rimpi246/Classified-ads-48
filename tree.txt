@@ -1,0 +1,168 @@
+├───.vscode/
+│   ├───launch.json
+│   └───settings.json
+├───bin/
+│   └───www
+├───client/
+│   ├───dist/
+│   │   ├───easteregg.js
+│   │   ├───listing.js
+│   │   ├───listing.js.LICENSE.txt
+│   │   ├───main.js
+│   │   ├───main.js.LICENSE.txt
+│   │   ├───skills.js
+│   │   ├───skills.js.LICENSE.txt
+│   │   ├───tags.js
+│   │   └───tags.js.LICENSE.txt
+│   ├───src/
+│   │   ├───data/
+│   │   ├───helpers/
+│   │   ├───shared/
+│   │   ├───views/
+│   │   ├───consts.js
+│   │   └───main.js
+│   ├───.env
+│   ├───.eslintrc.json
+│   ├───jsconfig.json
+│   ├───package-lock.json
+│   ├───package.json
+│   └───webpack.config.js
+├───creds/
+│   └───dz-listings-219ed1313c57.json
+├───data/
+│   ├───geo/
+│   │   └───country.js
+│   ├───locales/
+│   │   ├───ar/
+│   │   ├───en/
+│   │   └───fr/
+│   ├───raw/
+│   │   ├───dza.geojson
+│   │   └───wilayas.json
+│   └───taxonomy/
+│       ├───LICENSE
+│       ├───occupations_ar.csv
+│       ├───occupations_en.csv
+│       ├───occupations_fr.csv
+│       ├───taxonomy-with-ids.ar-SA.txt
+│       ├───taxonomy-with-ids.en-US.txt
+│       └───taxonomy-with-ids.fr-FR.txt
+├───GITHUB/
+│   ├───Capture_add.PNG
+│   ├───Capture_get.PNG
+│   ├───Capture_index.PNG
+│   ├───Capture_section.PNG
+│   └───THIRD PARTY LICENCES.pdf
+├───lib/
+│   ├───old/
+│   │   ├───cron_jobs.js
+│   │   ├───crpyto.js
+│   │   ├───db.json
+│   │   ├───gulpfile.js
+│   │   ├───helper_data.js
+│   │   ├───helper_ops.js
+│   │   └───tests.js
+│   ├───routes/
+│   │   ├───game.js
+│   │   ├───index.js
+│   │   └───listings.js
+│   ├───bigToes.js
+│   ├───conf.js
+│   ├───helper_data.js
+│   ├───helper_ops.js
+│   └───mongo_ops.js
+├───logs/
+│   ├───combined.log
+│   ├───err.log
+│   ├───error.log
+│   └───out.log
+├───public/
+│   ├───images/
+│   │   ├───1546457182.svg
+│   │   ├───1546457622.svg
+│   │   ├───1546457814.svg
+│   │   ├───1548790076.svg
+│   │   └───logo.svg
+│   ├───javascripts/
+│   │   ├───easteregg.js
+│   │   ├───easteregg.js.LICENSE.txt
+│   │   ├───listing.js
+│   │   ├───listing.js.LICENSE.txt
+│   │   ├───main.js
+│   │   ├───main.js.LICENSE.txt
+│   │   ├───skills.js
+│   │   ├───skills.js.LICENSE.txt
+│   │   ├───tags.js
+│   │   └───tags.js.LICENSE.txt
+│   ├───sounds/
+│   │   ├───error/
+│   │   ├───info/
+│   │   ├───success/
+│   │   └───warning/
+│   └───stylesheets/
+│       ├───eastereggs/
+│       ├───auto-complete.css
+│       ├───autoComplete.02.min.css
+│       ├───chota.min.css
+│       ├───Control.FullScreen.css
+│       ├───datatables.min.css
+│       ├───forms.css
+│       ├───icon-fullscreen-2x.png
+│       ├───icon-fullscreen.png
+│       ├───normalize.css
+│       ├───pell.min.css
+│       ├───searchPanes.dataTables.min.css
+│       ├───select.dataTables.min.css
+│       ├───simpleLightbox.min.css
+│       ├───style.css
+│       ├───tagify.css
+│       └───toasty.min.css
+├───tests/
+├───vendors/
+│   ├───auto-complete.min.js
+│   ├───avatar.js
+│   ├───dz.js
+│   ├───FontPicker.js
+│   ├───holmes.js
+│   ├───jsi18n.js
+│   ├───microlight.js
+│   ├───pell.min.js
+│   ├───stretchy.min.js
+│   ├───svg-injector.min.js
+│   ├───tagify.min.js
+│   ├───toasty.min.js
+│   └───undraw.js
+├───views/
+│   ├───partials/
+│   │   ├───add_donation.ejs
+│   │   ├───add_skill.ejs
+│   │   ├───afterbody.ejs
+│   │   ├───afterbody_datatable.ejs
+│   │   ├───datatables.ejs
+│   │   ├───footer.ejs
+│   │   ├───head.ejs
+│   │   ├───geo_search_map.ejs
+│   │   ├───navbar.ejs
+│   │   ├───pagination.ejs
+│   │   └───prepare_js_variables.ejs
+│   ├───blogs.ejs
+│   ├───easteregg.ejs
+│   ├───error.ejs
+│   ├───game.ejs
+│   ├───index.ejs
+│   ├───listing.ejs
+│   ├───listings.ejs
+│   ├───login.ejs
+│   ├───messages.ejs
+│   └───tags.ejs
+├───.env
+├───.eslintrc.json
+├───app.js
+├───bootstrap.js
+├───ecosystem.config.js
+├───package-lock.json
+├───package.json
+├───README.md
+├───sessions
+└───tree.txt
+

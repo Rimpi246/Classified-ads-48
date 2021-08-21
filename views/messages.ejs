@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('partials/head'); %>
+</head>
+
+<body>
+  <div id="upper_left" class="svg"></div>
+  <div id="upper_right" class="svg"></div>
+  <!-- <div id="lower_left"></div> -->
+  <div id="lower_right" class="svg"></div>
+  <div class="container">
+    <%- include('partials/navbar'); %>
+    <h1>
+      <%= title %>
+    </h1>
+    <p>🗯  <%= message %>
+    </p>
+    <%- include('partials/footer'); %>
+  </div>
+  <%- include('partials/prepare_js_variables'); %>
+</body>
+<%- include('partials/afterbody'); %>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('partials/head'); %>
+</head>
+
+<body>
+  <div class="container">
+	<%- include('partials/navbar'); %>
+
+    <h1>Login</h1>
+  <div class="jumbotron bg-light">
+    <p>
+      We need only your email. If you don't receive an activation email then retry shortly. 
+    </p>
+  </div>
+	<form action="/sendtoken" method="POST">
+		Email:
+		<br><input name="user" type="text">
+		<br><input type="submit" value="Login">
+	</form>
+  <%- include('partials/footer'); %>
+  </div>
+  
+  <%- include('partials/prepare_js_variables'); %>
+</body>
+<%- include('partials/afterbody'); %>
+</html>

@@ -1,0 +1,58 @@
+<% if(typeof section != 'undefined' && section == 'donations'){ %>
+    <br>
+    <hr>
+    <details>
+      <summary>Add a Donation</summary>
+      <h2>Add a Donation</h2>
+      <div id="editor" class="pell" data-target="#unique_target" data-max="500"></div>
+      <div id="characters-left"></div>
+      <div>
+        HTML output:
+        <div id="html-output" style="white-space:pre-wrap;"></div>
+      </div>
+      <br>
+      <div id="map"></div>
+      <br>
+      <br>
+      <form action="/listings/donations" enctype="multipart/form-data" method="POST">
+        <div class="form-group">
+          <!-- <label for="title">Choose a title</label> -->
+          <input name="title" class="add" id="title" value="" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <div>
+            <input type="radio" class="tagsLang" id="english" name="tagsLang" value="english"/>
+            <label for="english">English tags</label>
+          </div>
+          <div>
+            <input type="radio" class="tagsLang" id="arabic" name="tagsLang" value="arabic"/>
+            <label for="arabic">Arabic tags</label>
+          </div>
+          <div>
+            <input type="radio" class="tagsLang" id="french" name="tagsLang" value="french"/>
+            <label for="french">French tags</label>
+          </div>
+          <a href="/listings/tags" target="_blank" rel="noreferrer noopener">Choose tags from tags page first</a>
+          <input name='tags' id='donations'>
+        </div>
+        <div>
+          <!-- <label for="description">What description do you want to say?</label> -->
+          <input name="desc" class="add" id="description" value="" type="hidden">
+        </div>
+        <div class="form-group">
+          <label>Upload an image of the item</label>
+          <input type="file"  value='image' name='avatar' accept="image/*" onchange="loadFile(event)">
+          <img id="output" width="200" />
+        </div>
+        <input type="hidden" type="number" id="lat" name="lat" > 
+        <input type="hidden" type="number" id="lng" name="lng" > 
+        <!-- Division -->
+        <input type="hidden" id="div" name="div"> 
+        <input type="hidden" name="section" value='donations'> 
+        <br>
+        <div>
+          <button class="btn btn-primary">Add listing</button>
+        </div>
+      </form>
+    </details>
+<% } %>

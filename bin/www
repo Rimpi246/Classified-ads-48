@@ -1,0 +1,153 @@
+#!/usr/bin/env node
+logger_ = global._logger;
+
+/**
+ * Module dependencies.
+ */
+const app = require('../app'); // app is instance of Express
+const debug = require('debug')('classified-ads-48:server');
+const http = require('http');
+/**
+ * Get port from environment and store in Express.
+ */
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+const server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+const io = require('socket.io')(server);
+app.set('socketio', io);
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ * @param {Number} val
+ * @return {Boolean}
+ */
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ * @param {Error} error
+ */
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  const bind = typeof port === 'string' ?
+    'Pipe ' + port :
+    'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      _logger.log({level: 'error', message: bind + ' requires elevated privileges'});
+      process.exit(1);
+    case 'EADDRINUSE':
+      _logger.log({level: 'error', message: bind + ' is already in use'});
+      process.exit(1);
+    default:
+      throw error;
+  }
+}
+
+// pm2 --shutdown-with-message recieves a message to shutdown gracefully
+process.on('message', function(msg) {
+  if (msg == 'shutdown') {
+    // TODO: persist inconsistent DB here
+    _logger.log({level: 'info', message: 'Closing all connections...'});
+    // global.mongodb.disconnect();
+    setTimeout(function() {
+      _logger.log({level: 'info', message: 'Finished closing connections'});
+      process.exit(0);
+    }, 1500);
+  }
+});
+
+// Graceful start implemented with pm2 --wait-ready
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string' ?
+    'pipe ' + addr :
+    'port ' + addr.port;
+  _logger.log({level: 'info', message: 'Listening on ' + bind});
+}
+
+// ERROR HANDLING IN EXTREME CASES!!!
+// ASSUME ANY MAJOR ERROR IS CAUSED BY DATA INCONSISTENCY IN LAST DB
+// ON ANY MAJOR ERROR: SIGINT, SIGTERM OR UNCAUGHTEXCEPTION: FLAG DB
+// DB IS CONSIDERED ERRONOUS AND RENAMED BY (+1) TO BECOME AN ODD NUMBER
+// LAST DB WILL BE DOWN-GRADED
+// AND THE PREVIOUS VALID DB IS TAKEN FOR THE NEXT STARTUP UNTIL MANUAL ADMIN DEBUG
+
+const gracefulShutdown = require('http-graceful-shutdown');
+
+/**
+ * shutdownFunction
+ * @param {Number} signal
+ * @return {Promise}
+ */
+function shutdownFunction(signal) {
+  return new Promise((resolve) => {
+    _logger.log({level: 'error', message: '... called signal: ' + signal});
+    setTimeout(function() {
+      _logger.log({level: 'error', message: '... cleanup finished'});
+      resolve();
+    }, 1000);
+  });
+}
+
+/**
+ * cleanup
+ */
+function finalFunction() {
+  // console.log('Server gracefulls shutted down.....');
+  _logger.log({level: 'error', message: 'Server gracefulls shutted down.....'});
+}
+
+gracefulShutdown(server,
+    {
+      signals: 'SIGINT SIGTERM',
+      timeout: 10000, // timeout: 10 secs
+      development: false, // not in dev mode
+      forceExit: true, // triggers process.exit() at the end of shutdown process
+      // needed operation before httpConnections are shutted down
+      // preShutdown: preShutdownFunction,
+      onShutdown: shutdownFunction, // shutdown function (async) -  for cleanup DB, ...
+      finally: finalFunction, // finally function (sync) - e.g. for logging
+    },
+);
+
+process.on('uncaughtException', function(err) {
+  // handle the error safely
+  _logger.log({level: 'error', message: err});
+  process.exit(1);
+});

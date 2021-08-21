@@ -1,0 +1,78 @@
+<% if(typeof section != 'undefined' && section == 'skills'){ %>
+    <style>
+        /* This interfers with leaflet, so no leaflet in Art section */
+        .injected-svg {
+            height: 10rem;
+            width: 10rem;
+            position: relative;
+        }
+    </style>
+    <link rel="stylesheet" href="/stylesheets/simpleLightbox.min.css">
+    <br>
+    <hr>
+    <details>
+        <summary>Add a Skill</summary>
+        <h2>Add a Skill</h2>
+
+        <div id="editor" class="pell" data-target="#unique_target" data-max="500"></div>
+        <div id="characters-left"></div>
+        <div id="font-picker"></div>
+        <div>
+            HTML output:
+            <div id="html-output" class="" style="white-space:pre-wrap;"></div>
+        </div>
+        <br>
+        <form action="/listings/skills" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+                <label for="title">Choose a title</label>
+                <input name="title" id="title" class="add" value="title...">
+            </div>
+            <div class="form-group">
+                <div>
+                  <input type="radio" class="tagsLang" id="english" name="tagsLang" value="english"/>
+                  <label for="english">English tags</label>
+                </div>
+                <div>
+                  <input type="radio" class="tagsLang" id="arabic" name="tagsLang" value="arabic"/>
+                  <label for="arabic">Arabic tags</label>
+                </div>
+                <div>
+                  <input type="radio" class="tagsLang" id="french" name="tagsLang" value="french"/>
+                  <label for="french">French tags</label>
+                </div>
+                <input name='tags' id='skills'>
+              </div>
+            <div>
+                <input name="font" id="font" value='Open Sans' type="hidden">
+                <!-- TODO: resolve repeated id (in add ) -->
+                <input name="desc" id="description" class="add" value="description..." type="hidden">
+            </div>
+            <div class="form-group">
+                <label>Upload an image of your skill</label>
+                <input type="file" value='image' name='avatar' accept="image/*" onchange="loadFile(event)">
+                <img id="output" width="200"/>
+            </div>
+            <div class="form-group" id="undraw-input" style="display: flow-root;">
+                <!-- TODO: desactivate stretchy -->
+                <label for="illu_q">Or you can choose an illustration</label>
+                <input name="illu_q" value="" placeholder="Keywords (@_@)"
+                       onchange="javascript:loadIllustrations(this)">
+                <div id="parent">Color</div>
+            </div>
+
+            <input name="undraw" id="undraw" value='' type="hidden">
+            <input name="section" value='skills' type="hidden">
+            <br><br>
+            <div>
+                <button class="btn btn-primary">Add listing</button>
+            </div>
+        </form>
+    </details>
+    <script>
+        {
+            const scriptElement = document.createElement("script")
+            scriptElement.src = "/javascripts/skills.js"
+            document.body.appendChild(scriptElement)
+        }
+    </script>
+<% } %>

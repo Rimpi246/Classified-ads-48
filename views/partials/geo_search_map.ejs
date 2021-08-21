@@ -1,0 +1,13 @@
+<% if(typeof section != 'undefined' && (section == 'donations' || section == 'skills')){ %>
+    <details open="">
+        <summary data-trans="(.search)">Search</summary>
+        <h2 data-trans="(.fuzzysearch)">Geolocation search</h2>
+        <div id="geo-search-map"></div>
+        <form action="/listings/geolocation" method="POST">
+                <input type="hidden" type="number" id="lat3" name="lat" > 
+                <input type="hidden" type="number" id="lng3" name="lng" >
+                <input type="hidden" name="section" value='<%=section%>'> 
+                <button class="btn btn-primary" data-trans="(.search)">Search</button>
+        </form>
+    </details>
+<% } %>

@@ -1,0 +1,54 @@
+<% if(typeof success != 'undefined'){ %>
+  <script>
+    var getTest = "<%= success  %>"
+    if(getTest)
+      __successes__.push(getTest)
+  </script>
+<% } %>
+<% if(typeof error != 'undefined'){ %>
+  <script>
+    var getTest = "<%= error  %>"
+    if(getTest)
+      __errors__.push(getTest)
+  </script>
+<% } %>
+<% if(typeof data != 'undefined' && typeof data.lat != 'undefined'){ %>
+  <script>
+    var __lat__ =  "<%= data.lat  %>"
+  </script>
+<% } %>
+<% if(typeof data != 'undefined' && typeof data.lng != 'undefined'){ %>
+  <script>
+    var __lng__ =  "<%= data.lng  %>"
+  </script>
+<% } %>
+<% if(typeof section != 'undefined'){ %>
+  <script>
+    var __section__ =  "<%= section  %>"
+  </script>
+<% } %>
+<% if(typeof context != 'undefined'){ %>
+  <script>
+    var __context__ =  "<%= context  %>"
+  </script>
+<% } %>
+<% if(typeof data != 'undefined' && typeof data.font != 'undefined'){ %>
+  <script>
+    var __font__ =  "<%= data.font  %>"
+  </script>
+<% } %>
+<% if(typeof data != 'undefined' && typeof data.usr != 'undefined'){ %>
+  <script>
+    var __initials__ =  "<%= data.usr  %>"
+  </script>
+<% } %>
+<% if(typeof data != 'undefined' && typeof data.undraw != 'undefined'){ %>
+  <script>
+    var __undrawURL__ =  "<%= data.undraw  %>"
+  </script>
+<% } %>
+<% if(typeof addressPoints != 'undefined'){ %>
+  <script>
+    var __addressPoints__ =  <%- JSON.stringify(addressPoints) %>;
+  </script>
+<% } %>
