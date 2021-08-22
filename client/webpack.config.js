@@ -25,9 +25,6 @@ module.exports = {
   },
   ...(isDevEnv && devConfig),
   plugins: [
-    // new CopyPlugin({
-    //   patterns: [{ from: "dist", to: paths.public, noErrorOnMissing: true }],
-    // }),
     new FileManagerPlugin({
       events: {
         onStart: {},

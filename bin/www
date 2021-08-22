@@ -79,7 +79,6 @@ function onError(error) {
 // pm2 --shutdown-with-message recieves a message to shutdown gracefully
 process.on('message', function(msg) {
   if (msg == 'shutdown') {
-    // TODO: persist inconsistent DB here
     _logger.log({level: 'info', message: 'Closing all connections...'});
     // global.mongodb.disconnect();
     setTimeout(function() {

@@ -87,7 +87,9 @@ There are also other routes that client side JS code fetches:
 - Create files and folders ignored in `.gitignore` which are:  
   - creds/  (folder with a Google Cloud store credentials)  
   - /sessions  (empty file)  
+  - .env (check bellow *)
   - /client/dist  (empty folder)  
+  - /client/.env (check bellow **)
   - Check [tree file](tree.txt)
 - Create MongoDB databases: `listings_db_dev` and `listings_db` with both collections `listing` and `words`
 - `cd client` then `npm install`
@@ -95,6 +97,29 @@ There are also other routes that client side JS code fetches:
 - `npm start` (or you can install pm2 globally and run `pm2 start`)
 - When you get your hands on, you can change map data, delivered messages and so on. 
 
+### Environment variables
+
+**.env**  
+```
+NODE_ENV={local/development/production}
+HONEYPOT_KEY={get a free key from https://www.projecthoneypot.org/}
+PASS={password3}
+PASS2={password4}
+EMAIL_TO={email1}
+EMAIL_PASS={password2}
+EMAIL_FROM={email2}
+MONGODB_URI={you can keep empty for 'local' env}
+GCLOUD_STORAGE_BUCKET={Google-cloud-storage bucket name}
+CREDS_PATH=./creds/{{Google-cloud-storage credentials file-name}}
+GOOGLE_FONT_API={Google font API key}  
+```
+
+**client/.env**  
+```
+NODE_ENV={local/development/production}
+LATITUDE={Latitude that suits chosen geolocation (center?)}
+LONGITUDE={longitude that suits chosen geolocation (center?)}
+```
 
 --------
 ## Classified-ads-48 for *Algeria* use case

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
+// TODO: reference to context: change texts of translations
 
 export const __ar_translations = {
   '(today)': 'مستجدات',
