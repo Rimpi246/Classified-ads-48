@@ -119,6 +119,8 @@ GOOGLE_FONT_API={Google font API key}
 NODE_ENV={local/development/production}
 LATITUDE={Latitude that suits chosen geolocation (center?)}
 LONGITUDE={longitude that suits chosen geolocation (center?)}
+BORDERS_FILE_URL={link to borders json (ex: https://raw.githubusercontent.com/bacloud14/listings-data/main/data/geo/borders-algeria-v0.json)}
+STATES_FILE_URL={link to states delimitations json (ex: https://raw.githubusercontent.com/bacloud14/listings-data/main/data/geo/states-algeria-v0.json)}
 ```
 
 --------
