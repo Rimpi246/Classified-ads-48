@@ -225,7 +225,7 @@ const keys0 = ['NODE_ENV', 'HONEYPOT_KEY', 'PASS', 'PASS2',
   'EMAIL_TO', 'EMAIL_PASS', 'EMAIL_FROM', 'MONGODB_URI',
   'GCLOUD_STORAGE_BUCKET', 'CREDS_PATH', 'GOOGLE_FONT_API'];
 const keys1 = ['NODE_ENV', 'LATITUDE', 'LONGITUDE',
-'BORDERS_FILE_URL', 'STATES_FILE_URL'];
+  'BORDERS_FILE_URL', 'STATES_FILE_URL'];
 ops.checkEnvironmentVariables = function checkEnvironmentVariables() {
   if (process.env.NODE_ENV !== 'local') {
     return;

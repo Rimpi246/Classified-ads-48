@@ -33,6 +33,22 @@ module.exports = {
     filename: "[name].js",
     path: paths.dist,
   },
+  // module: {
+  //   // for earlier webpack versions
+  //   rules: [{ 
+  //     test: /\.json$/,
+  //     loader: 'json-loader'
+  //    }],
+  // },
+  module: {
+    rules: [
+      {
+        test: /\.json5$/i,
+        loader: 'json5-loader',
+        type: 'javascript/auto',
+      },
+    ]
+  },
   ...(isDevEnv && devConfig),
   plugins: [
     new WebpackBeforeBuildPlugin(function(stats, callback) {

@@ -1,7 +1,7 @@
 import L from "leaflet";
 import { styleStatesClosure } from "./helpers/style-states";
 import { onEachFeature } from "./helpers/on-each-feature/on-each-feature";
-import { __states } from "../../../data/country";
+const states = require ('../../../data/states.json');
 import { geoJson, map } from "./state";
 import 'leaflet.fullscreen';
 import screenfull from 'screenfull';
@@ -23,7 +23,7 @@ export function delimitationsMap({ lat, lng, layerFactory, zoom }) {
   map.name = "delimitationsMap";
   map.current.addLayer(layerFactory(osmUrl, osmAttrib, false));
   map.current.setView(new L.LatLng(lat, lng), zoom);
-  geoJson.current = L.geoJson(__states, {
+  geoJson.current = L.geoJson(states, {
     style: styleStatesClosure(map),
     onEachFeature,
   }).addTo(map.current);

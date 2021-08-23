@@ -1,8 +1,8 @@
 import { isMarkerInsidePolygon } from "./is-marker-inside-polygon";
-import { __states } from "../../../../../data/country";
+const states = require ('../../../../../data/states.json');
 import { LIS } from "../../../../../helpers/lis";
 import { getDzStateNames } from "../../../../../data/get-dz-state-names";
-const polygon = __states.features.map((a) => a.geometry.coordinates[0]);
+const polygon = states.features.map((a) => a.geometry.coordinates[0]);
 /**
  * Attach one marker to map with constraints (marker is draggble but cannot go out of )
  * Based on __borders and __states (country borders and Wilayas delimitations)

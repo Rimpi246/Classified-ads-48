@@ -1,5 +1,6 @@
 import * as L from "leaflet";
-import { __borders, __states } from "../../../data/country";
+const borders = require ('../../../data/borders.json');
+const states = require ('../../../data/states.json');
 import { styleStatesClosure } from "./helpers/style-states";
 import { onEachFeature } from "./helpers/on-each-feature/on-each-feature";
 import { geoJson, map} from "./state";
@@ -8,7 +9,7 @@ import screenfull from 'screenfull';
 window.screenfull = screenfull;
 
 import { io } from "socket.io-client";
-const coordinates = __borders.features[0].geometry.coordinates[0];
+const coordinates = borders.features[0].geometry.coordinates[0];
 const latLngs = [];
 const someColor = (idx) => {
   return ['#fff100', '#ff8c00', '#e81123', '#ec008c', '#68217a',
@@ -40,7 +41,7 @@ export function gameMap({ lat, lng, layerFactory, zoom }) {
   map.name = "gameMap";
   map.current.addLayer(layerFactory(osmUrl, osmAttrib, false));
   map.current.setView(new L.LatLng(lat, lng), zoom);
-  geoJson.current = L.geoJson(__states, {
+  geoJson.current = L.geoJson(states, {
     style: styleStatesClosure(map),
     onEachFeature,
   }).addTo(map.current);

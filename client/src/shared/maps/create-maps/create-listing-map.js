@@ -1,10 +1,10 @@
 import L from "leaflet";
 import { moveableMarker } from "./helpers/marker/setup-marker";
-import { __borders } from "../../../data/country";
+const borders = require ('../../../data/borders.json');
 let map;
 let circle;
 let lastValid;
-const coordinates = __borders.features[0].geometry.coordinates[0];
+const coordinates = borders.features[0].geometry.coordinates[0];
 const latLngs = [];
 const osmUrl = "http://{s}.tile.osm.org/{z}/{x}/{y}.png";
 const osmAttrib = "Map data &copy; OpenStreetMap contributors";
