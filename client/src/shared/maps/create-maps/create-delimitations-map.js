@@ -11,7 +11,7 @@ window.screenfull = screenfull;
  */
 // https://leafletjs.com/examples/geojson/
 // const myLayer = L.geoJSON().addTo(map2);
-// myLayer.addData(__dzHealth);
+// myLayer.addData(__health);
 // myLayer.eachLayer(function(layer) {
 //   layer.bindPopup(layer.feature.properties.name);
 // });

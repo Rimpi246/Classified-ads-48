@@ -1,7 +1,7 @@
 import { isMarkerInsidePolygon } from "./is-marker-inside-polygon";
 const states = require ('../../../../../data/states.json');
 import { LIS } from "../../../../../helpers/lis";
-import { getDzStateNames } from "../../../../../data/get-dz-state-names";
+import { getStateNames } from "../../../../../data/get-state-names";
 const polygon = states.features.map((a) => a.geometry.coordinates[0]);
 /**
  * Attach one marker to map with constraints (marker is draggble but cannot go out of )
@@ -12,7 +12,7 @@ const polygon = states.features.map((a) => a.geometry.coordinates[0]);
  * @return {(marker|*[])[]} Just a reference
  */
 export function moveableMarker(map, marker, coordinates) {
-  const names = getDzStateNames();
+  const names = getStateNames();
   let lastValid = [];
   /**
    * blablabla (0_o)

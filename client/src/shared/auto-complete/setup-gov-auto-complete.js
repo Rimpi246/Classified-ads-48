@@ -1,8 +1,8 @@
-import { getDzStateNames } from "../../data/get-dz-state-names";
+import { getStateNames } from "../../data/get-state-names";
 import { autoComplete } from "./vendors/auto-complete.min";
 
 export const setupGovAutoComplete = () => {
-  const names = getDzStateNames();
+  const names = getStateNames();
   // eslint-disable-next-line max-len
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ AUTOCOMPLETE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   // Autocomplete for governmental divisions

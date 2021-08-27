@@ -1,3 +1,6 @@
+
+import {APIHost, OUTLOOK, PING_LIMITER} from './consts';
+
 const bootstrap = require('./bootstrap').ops;
 bootstrap.checkEnvironmentVariables();
 
@@ -131,13 +134,7 @@ app.get('/i18n/:locale', (req, res) => {
   if (req.headers.referer) res.redirect(req.headers.referer);
   else res.redirect('/');
 });
-const consts = {
-  APIHost: {
-    'production': '',
-    'development': 'https://dzlistings.herokuapp.com',
-    'local': 'http://localhost:3000',
-  },
-};
+
 
 const passwordless = require('passwordless');
 const NodeCacheStore = require('passwordless-nodecache');
@@ -147,14 +144,14 @@ const EMAIL_PASS = process.env.EMAIL_PASS;
 const EMAIL_FROM = process.env.EMAIL_FROM;
 const transportOptions = {
   pool: true,
-  host: 'smtp.office365.com', // Office 365 server
-  port: 587, // secure SMTP
+  host: OUTLOOK.MAIL_SERVER,
+  port: OUTLOOK.SMTP_PORT,
   secure: false,
   auth: {
     user: EMAIL_FROM,
     pass: EMAIL_PASS,
   },
-  tls: {ciphers: 'SSLv3'},
+  tls: OUTLOOK.TLS,
 };
 const transporter = nodemailer.createTransport(transportOptions);
 transporter.verify(function(error, success) {
@@ -191,7 +188,7 @@ passwordless.init(new NodeCacheStore());
 // Set up a delivery service
 passwordless.addDelivery(
     function(tokenToSend, uidToSend, recipient, callback, req) {
-      const host = `${consts.APIHost[process.env.NODE_ENV]}/logged_in`;
+      const host = `${APIHost[process.env.NODE_ENV]}/logged_in`;
       const text = 'Hello!\nAccess your account here: http://' +
       host + '?token=' + tokenToSend + '&uid=' + encodeURIComponent(uidToSend);
       logginMail(text, recipient);
@@ -211,7 +208,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // const customFilter = new Filter({placeHolder: 'x'});
 
-const trimmer = function(req, res, next) {
+// Process generic parameters
+const processParams = function(req, res, next) {
+  // 1: Trimmer
   req.body = _.object(_.map(req.body, function(value, key) {
     if (value && value.length) {
       return [key, value.trim()];
@@ -219,12 +218,7 @@ const trimmer = function(req, res, next) {
       return [key, value];
     }
   }));
-  next();
-};
-app.use(trimmer);
-
-// Process generic parameters
-const processParams = function(req, res, next) {
+  // 2: Pagination
   // Add pagination constants based on API, device, browser, etc.
   // No pagination for search pages
   if (req.url.indexOf('geolocation')>=0 || req.url.indexOf('gwoogl')>=0) {
@@ -247,22 +241,14 @@ app.use('/data', dataRouter);
 app.use('/', gameRouter);
 
 const rateLimit = require('express-rate-limit');
-const addLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // limit each IP to 100 requests per windowMs
-});
+const addLimiter = rateLimit(PING_LIMITER.RATE_LIMIT);
 // /listings/ + /^\/(donations|skills|blogs)/
 app.post('/listings/donations/', addLimiter);
 app.post('/listings/skills/', addLimiter);
 
 const slowDown = require('express-slow-down');
 app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, etc)
-const speedLimiter = slowDown({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  delayAfter: 100, // allow 100 requests per 15 minutes, then...
-  delayMs: 500, // begin adding 500ms of delay per request above 100:
-  // request # 101 is delayed by  500ms
-});
+const speedLimiter = slowDown(PING_LIMITER.SLOW_DOWN_LIMIT);
 app.use(speedLimiter);
 
 // catch 404 and forward to error handler

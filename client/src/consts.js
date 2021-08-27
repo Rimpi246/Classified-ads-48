@@ -1,3 +1,5 @@
+// Configuration
+
 const consts = {
     APIHost : {
         'production': '',
