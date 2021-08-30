@@ -7,8 +7,11 @@
  */
 import autoComplete from '@tarekraafat/autocomplete.js'
 import {APIHost} from "../../consts";
-export const setupAutoComplete = () => {
-  if (document.querySelector('input#autoComplete')) {
+export const setupAutoComplete = async () => {
+  return new Promise(function(resolve, reject) {
+    if (!document.querySelector('input#autoComplete')) {
+      return resolve('rolling well');
+    }
     try {
       const autoCompleteJS = new autoComplete({
         placeHolder: "Search for Listings...",
@@ -47,11 +50,15 @@ export const setupAutoComplete = () => {
           }
         }
       });
+      return resolve('### function "setupAutoComplete" run successfully');
     } catch (error) {
       console.log(
         "Maybe running where there is no input with id = 'autoComplete' in HTML | ERROR: ",
         error.message
       );
+      return reject(new Error('### function "setupAutoComplete" failed'));
     }
-  }
+    
+  });
+
 };

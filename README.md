@@ -162,4 +162,5 @@ Also I would like to thank the following contributors:
 
 Classified-ads-48 is released under a [CC BY-NC-SA License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 
-[Licenses from third parties](GITHUB/docs/THIRD%20PARTY%20LICENCES.pdf)
+[Licenses from third parties](GITHUB/docs/THIRD%20PARTY%20LICENCES.pdf)  
+[Licenses from third parties (complete)](3rd-party-licenses.txt)

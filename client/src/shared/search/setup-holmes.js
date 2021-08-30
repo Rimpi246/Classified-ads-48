@@ -9,8 +9,11 @@
  */
 import holmes from "holmes.js";
 
-export const setupHolmes = () => {
-  if (document.querySelector(".row .card p")) {
+export const setupHolmes = async () => {
+  return new Promise(function(resolve, reject) {
+    if (!document.querySelector(".row .card p")) {
+      return resolve('rolling well');
+    }
     try {
       const h = holmes({
         input: ".search input",
@@ -22,27 +25,19 @@ export const setupHolmes = () => {
           visible: "visible",
           hidden: "hidden",
         },
-        onHidden(el) {
-          // console.log("hidden", el);
-        },
-        onFound(el) {
-          // console.log("found", el);
-        },
-        onInput(el) {
-          // console.log("input", el);
-        },
-        onVisible(el) {
-          // console.log("visible", el);
-        },
-        onEmpty(el) {
-          // console.log("empty", el);
-        },
+        onHidden(el) {},
+        onFound(el) {},
+        onInput(el) {},
+        onVisible(el) {},
+        onEmpty(el) {},
       });
+      return resolve('### function "setupHolmes" run successfully');
     } catch (error) {
       console.log(
         "Maybe running where there is no list in HTML | ERROR: ",
         error.message
       );
+      return reject(new Error('### function "setupHolmes" failed'));
     }
-  }
+  });
 };

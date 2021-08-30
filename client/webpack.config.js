@@ -10,7 +10,7 @@ const paths = {
   dist: path.resolve(__dirname, "dist"),
   public: path.resolve(__dirname, "..", "public", "javascripts"),
 };
-const isDevEnv = process.argv.includes("-w");
+const isDevEnv = ['development', 'local'].includes(process.env.NODE_ENV);
 const devConfig = {
   mode: "development",
   devtool: "eval-source-map",

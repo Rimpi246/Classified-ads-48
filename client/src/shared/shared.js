@@ -14,21 +14,33 @@ import { runToasts } from "./toasts/toasts";
 import { loadFile } from "./load-file/load-file";
 import { dateFromObjectId } from "./formatters/date-from-objectId";
 
-export const setupShared = () => {
+export const setupShared = async () => {
+  const log = window.log;
   // setupStretchy();
-  setupI18n();
-  setupHolmes();
-  setupAutoComplete();
-  setupPell();
-  setupInputTags();
-  setupFontPicker();
-  setupLeaflet();
-  setupMaps();
-  setupGovAutoComplete();
-  setupIlluAutoComplete();
-  setupSocket();
-  runToasts();
+  const promises = [
+    setupI18n(), 
+    setupHolmes(), 
+    setupAutoComplete(), 
+    setupPell(), 
+    setupInputTags(), 
+    setupFontPicker(), 
+    setupLeaflet(), 
+    setupMaps(), 
+    setupGovAutoComplete(), 
+    setupIlluAutoComplete(), 
+    setupSocket(), 
+    runToasts()
+  ];
+  const logPromises = (results) => results.forEach((result) => log.info(result));
+  // Reject as soon as possible for dev environments
+  // More permissive for production environment.
+  // Counterintuitive huh ?
+  if (['development', 'local'].includes(process.env.NODE_ENV))
+    Promise.all(promises).then((results) => logPromises(results));
+  else
+    Promise.allSettled(promises).then((results) => logPromises(results));    
   
+  // Global objects
   window["loadFile"] = loadFile;
   window["dateFromObjectId"] = dateFromObjectId;
 };

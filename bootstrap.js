@@ -223,9 +223,9 @@ for (let index = 0; index < 400; index++) {
 const ops = {};
 const keys0 = ['NODE_ENV', 'HONEYPOT_KEY', 'PASS', 'PASS2',
   'EMAIL_TO', 'EMAIL_PASS', 'EMAIL_FROM', 'MONGODB_URI',
-  'GCLOUD_STORAGE_BUCKET', 'CREDS_PATH', 'GOOGLE_FONT_API'];
+  'GCLOUD_STORAGE_BUCKET', 'CREDS_PATH'];
 const keys1 = ['NODE_ENV', 'LATITUDE', 'LONGITUDE',
-  'BORDERS_FILE_URL', 'STATES_FILE_URL'];
+  'BORDERS_FILE_URL', 'STATES_FILE_URL', 'GOOGLE_FONT_API'];
 ops.checkEnvironmentVariables = function checkEnvironmentVariables() {
   if (process.env.NODE_ENV !== 'local') {
     return;
@@ -292,9 +292,9 @@ ops.checkEnvironmentData = async function checkEnvironmentData(url) {
 
 // Checks and downloads useful datasets
 // These datasets can be host anywhere
-ops.downloadRawDatasets = function downloadRawDatasets() {
+ops.checkRawDatasets = function checkRawDatasets() {
   console.log({level: 'info', message: 'Checking raw datasets'});
-  
+  // TODO: files
   console.log({level: 'info', message: 'Raw datasets seem to be fine'});
 };
 

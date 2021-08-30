@@ -21,8 +21,11 @@
 
 import { setupShared } from "./shared/shared";
 import {APIHost, logLevel} from "./consts";
+// Browser loggings to let hints for different environments
+// on important events and actions.
 import log from 'loglevel';
 log.setDefaultLevel(logLevel[process.env.NODE_ENV]);
+window['log'] = log;
 
 if (['development', 'local'].includes(APIHost[process.env.NODE_ENV])) {
   console.log(`Section: ${__section__}`)

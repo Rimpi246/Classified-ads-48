@@ -14,7 +14,7 @@ export const setupFontPicker = () => {
       .getElementsByClassName("pell-content")[0]
       .classList.add("apply-font");
     fontPicker = new FontPicker(
-      "AIzaSyC8v5x5NVQrrgbByQAQ3_rK69kXItZ2Mr0", // Google API key
+      process.env.GOOGLE_FONT_API, // Google API key
       "Open Sans", // Default font
       { limit: 30 } // Additional options
     );
@@ -25,7 +25,7 @@ export const setupFontPicker = () => {
     // Hide FontPicker and apply 'font'
   } else if (LIS.id("font-picker") && typeof __font__ != "undefined") {
     fontPicker = new FontPicker(
-      "AIzaSyC8v5x5NVQrrgbByQAQ3_rK69kXItZ2Mr0", // Google API key
+      process.env.GOOGLE_FONT_API, // Google API key
       "Open Sans", // Default font
       { limit: 30 } // Additional options
     );
