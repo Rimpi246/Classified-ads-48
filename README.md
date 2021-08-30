@@ -111,7 +111,6 @@ EMAIL_FROM={email2}
 MONGODB_URI={you can keep empty for 'local' env}
 GCLOUD_STORAGE_BUCKET={Google-cloud-storage bucket name}
 CREDS_PATH=./creds/{{Google-cloud-storage credentials file-name}}
-GOOGLE_FONT_API={Google font API key}  
 ```
 
 **client/.env**  
@@ -120,7 +119,8 @@ NODE_ENV={local/development/production}
 LATITUDE={Latitude that suits chosen geolocation (center?)}
 LONGITUDE={longitude that suits chosen geolocation (center?)}
 BORDERS_FILE_URL={link to borders json (ex: https://raw.githubusercontent.com/bacloud14/listings-data/main/data/geo/borders-algeria-v0.json)}
-STATES_FILE_URL={link to states delimitations json (ex: https://raw.githubusercontent.com/bacloud14/listings-data/main/data/geo/states-algeria-v0.json)}
+STATES_FILE_URL={link to states delimitations json (ex: https://raw.githubusercontent.com/bacloud14/listings-data/main/data/geo/states-algeria-v0.json)}  
+GOOGLE_FONT_API={Google font API key}
 ```
 
 --------
