@@ -65,3 +65,4 @@ Data that is used is simple; Two types are present.
  - [Country (or area) borders](https://bacloud14.github.io/Classified-ads-48/geo_data)
  - [Country (or area) first level delimitations](https://bacloud14.github.io/Classified-ads-48/geo_data2)
  
+ <script src="https://embed.github.com/view/geojson/bacloud14/Classified-ads-xx-data/main/data/geo/borders-algeria-v0.json"></script>
