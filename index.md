@@ -56,3 +56,12 @@ These are current interactive maps
  - Read-only maps: are maps with a visible marker to show the geo-location of a post.
  - Post maps: are maps with a visible marker to drag and size to any geo-location within the limits of a country borders, to be able to add a post or to search posts withing a radius.
  - Game maps: are maps connected with server not by HTTP but by sockets. You can implement your game where you can create channels, broadcast current position of users, and do any other magic. 
+
+#### Data
+
+Data used for map geo-locations is in [GEOJSON format](https://en.wikipedia.org/wiki/GeoJSON). In [deployment step](https://github.com/bacloud14/Classified-ads-48#deployment) data is downloaded and copied for front and back-end.  
+Data that is used is simple; Two types are present.  
+
+ - Country (or area) borders
+ - Country (or area) first level delimitations
+ 
