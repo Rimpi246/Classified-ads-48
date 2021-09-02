@@ -1,37 +1,9 @@
-## Welcome to GitHub Pages
+## Welcome to Classified-ads-48 
 
-You can use the [editor on GitHub](https://github.com/bacloud14/Classified-ads-48/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Bringing to the web the idea of [classified advertising](https://www.wikiwand.com/en/Classified_advertising). Together with rich input forms and an [interactive map](https://leafletjs.com/), we hope to create a digital platform that scales for different categories (sections) and for a large load of accessing users. All with a simple navigation, [minimal subscription](https://www.wikiwand.com/en/Passwordless_authentication) and respecting user privacy.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This page presents the web-app technical aspects for possible *contribution* and *deployment*.
 
-### Markdown
+### Classified-ads-48 and Classified-ads-xx 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bacloud14/Classified-ads-48/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[Classified-ads-48](https://github.com/bacloud14/Classified-ads-48) would be the code base of a fully functional website that I (personally) want to deploy in Algeria. This means that it is specific to my case. Nevertheless, the repository is supposed to be fully customizable. You could with little configuration change the geo-location and served messages for all web-pages. All with different languages also. 
