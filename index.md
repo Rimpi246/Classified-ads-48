@@ -49,3 +49,10 @@ Several benefits of No-SQL are achieved easily using modern MongoDB. Particularl
  - Native support of geo-data (geo-indexes, geo-queries)
 
 #### Maps and geo-data
+
+For this, I used Leaflet with different possible map tiles providers. Together with JavaScript and CSS we can achieve beautiful interactive maps.  
+These are current interactive maps
+ - Index page's map: A map with visible sub-division delimitations where you can click on each delimitation (feature in GEOJSON data) to fetch posts within that boundry.
+ - Read-only maps: are maps with a visible marker to show the geo-location of a post.
+ - Post maps: are maps with a visible marker to drag and size to any geo-location within the limits of a country borders, to be able to add a post or to search posts withing a radius.
+ - Game maps: are maps connected with server not by HTTP but by sockets. You can implement your game where you can create channels, broadcast current position of users, and do any other magic. 
