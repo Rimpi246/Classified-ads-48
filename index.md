@@ -8,9 +8,10 @@ This page presents the web-app technical aspects for possible *contribution* and
 
 [Classified-ads-48](https://github.com/bacloud14/Classified-ads-48) would be the code base of a fully functional website that I (personally) want to deploy in Algeria. This means that it is specific to my case. Nevertheless, the repository is supposed to be fully customizable. You could with little configuration change the geo-location and served messages for all web-pages. All with different languages also. 
 
-### Technical stack 
-
-Node.js and MongoDB.
+🧰 Technical stack 
+---
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" alt="JavaScript logo" width="50" height="50" /> <img src="https://github.com/devicons/devicon/blob/master/icons/webpack/webpack-original.svg" alt="Webpack logo" width="50" height="50" /> <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap logo" width="50" height="50" /> <img src="https://cdn.worldvectorlogo.com/logos/leaflet-1.svg" alt="Leaflet logo" width="100" height="50" /> <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" alt="NodeJS logo" width="50" height="50" /> <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original.svg" alt="Express logo" width="50" height="50" /> <img src="https://github.com/devicons/devicon/blob/master/icons/mongodb/mongodb-original.svg" alt="MongoDB logo" width="50" height="50" /> 
+---
 
 #### Front-end dependencies
 
