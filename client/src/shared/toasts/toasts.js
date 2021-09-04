@@ -1,7 +1,5 @@
 import "egalink-toasty.js";
 const Toasty = window["Toasty"];
-// eslint-disable-next-line max-len
-// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TOASTY @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const options = {
   classname: "toast",
   transition: "fade",
@@ -22,12 +20,22 @@ const options = {
 };
 const __errors__ = window["__errors__"];
 const __successes__ = window["__successes__"];
-export const runToasts = () => {
-  const toast = new Toasty(options);
-  __errors__.forEach((error) => {
-    toast.error(error);
-  });
-  __successes__.forEach((success) => {
-    toast.success(success);
+export const runToasts = async () => {
+  return new Promise(function(resolve, reject) {
+    try {
+      const toast = new Toasty(options);
+      __errors__.forEach((error) => {
+        toast.error(error);
+      });
+      __successes__.forEach((success) => {
+        toast.success(success);
+      });
+      return resolve('### function "runToasts" run successfully');
+    } catch (error) {
+      console.log(
+        error.message
+      );
+      return reject(new Error('### function "runToasts" failed'));
+    }
   });
 };

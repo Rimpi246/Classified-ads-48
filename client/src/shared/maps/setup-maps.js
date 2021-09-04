@@ -6,10 +6,11 @@ import { gameMap } from "./create-maps/create-game-map";
 import L from "leaflet";
 import { MarkerClusterGroup } from "leaflet.markercluster/src";
 import {APIHost} from "../../consts";
+import { tweakLeaflet } from "./tweak-leaflet";
 const __lat__ = window["__lat__"];
 const __lng__ = window["__lng__"];
 const __section__ = window["__section__"];
-console.log("SETTING")
+
 
 function updateCenter() {
   const lat = typeof __lat__ !== "undefined" ? __lat__ : parseFloat(process.env.LATITUDE);
@@ -39,6 +40,7 @@ const addressPoints = window["__addressPoints__"];
 
 
 export const setupMaps = () => {
+  tweakLeaflet();
   const { lat, lng } = updateCenter();
   // Safe instantiate map container
   let layerFactory = function layerFactory(osmUrl, osmAttrib, darkMode) {

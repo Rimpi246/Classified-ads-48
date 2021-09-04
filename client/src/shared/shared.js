@@ -5,10 +5,10 @@ import { setupAutoComplete } from "./search/setup-autocomplete";
 import { setupPell } from "./editor/setup-pell";
 import { setupInputTags } from "./tags/setup-input-tags";
 import { setupFontPicker } from "./fonts/setup-font-picker";
-import { setupLeaflet } from "./maps/setup-leaflet";
+// import { setupLeaflet } from "./maps/setup-leaflet";
 import { setupMaps } from "./maps/setup-maps";
-import { setupGovAutoComplete } from "./auto-complete/setup-gov-auto-complete";
-import { setupIlluAutoComplete } from "./auto-complete/setup-illu-auto-complete";
+import { setupDelimitationsKeywords } from "./auto-complete/setup-delimitations-keywords";
+import { setupUndrawKeywords } from "./auto-complete/setup-undraw-keywords";
 import { setupSocket } from "./socket/setup-socket";
 import { runToasts } from "./toasts/toasts";
 import { loadFile } from "./load-file/load-file";
@@ -24,11 +24,9 @@ export const setupShared = async () => {
     setupPell(), 
     setupInputTags(), 
     setupFontPicker(), 
-    setupLeaflet(), 
-    setupMaps(), 
-    setupGovAutoComplete(), 
-    setupIlluAutoComplete(), 
-    setupSocket(), 
+    // setupLeaflet(), 
+    setupDelimitationsKeywords(), 
+    setupUndrawKeywords(), 
     runToasts()
   ];
   const logPromises = (results) => results.forEach((result) => log.info(result));
@@ -39,7 +37,10 @@ export const setupShared = async () => {
     Promise.all(promises).then((results) => logPromises(results));
   else
     Promise.allSettled(promises).then((results) => logPromises(results));    
-  
+  // Other function calls that are not yet promisified
+  // because I'm not sure yet what's asynchronous in there
+  setupMaps();
+  setupSocket();
   // Global objects
   window["loadFile"] = loadFile;
   window["dateFromObjectId"] = dateFromObjectId;

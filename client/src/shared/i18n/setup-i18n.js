@@ -14,8 +14,7 @@ export const setupI18n = () => {
       jsI18n.addLocale("fr", __fr_translations);
       jsI18n.addLocale("en", __en_translations);
     
-      // eslint-disable-next-line max-len
-      // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Beautifuck @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
       // BASED ON LOCALE SET THE DEFAULT SELECT INPUT OPTION
       const lower_right = document.querySelector("#lower_right");
       const cookizz = getCookies();

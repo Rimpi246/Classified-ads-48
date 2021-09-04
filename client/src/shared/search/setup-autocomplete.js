@@ -1,5 +1,3 @@
-// eslint-disable-next-line max-len
-// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ HOLMES @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**
  * ADD 'https://tarekraafat.github.io/autoComplete.js/' auto complete
  * MUST EXIST:

@@ -1,5 +1,10 @@
+/**
+ * All tweaks for pre-setting leaflet maps code
+ * 
+ */
 import L from "leaflet";
-export const setupLeaflet = () => {
+export const tweakLeaflet = () => {
+  // Make polygones possible (setting colored masks)
   L.Mask = L.Polygon.extend({
     options: {
       stroke: false,

@@ -13,8 +13,6 @@ const x_min = bounds.getWest();
 const y_max = bounds.getSouth();
 const y_min = bounds.getNorth();
 export const setupSocket = () => {
-  // eslint-disable-next-line max-len
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Socket @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   // On signal from server remove all listings with some ID in all clients
   // TODO: process.env.NODE_ENV to replace constant localhost domain
   const socket = io('http://localhost:3000');

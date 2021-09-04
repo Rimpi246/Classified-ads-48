@@ -1,5 +1,3 @@
-// eslint-disable-next-line max-len
-// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ HOLMES @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**
  * ADD 'github.com/Haroenv/holmes' INSTANT SEARCH
  * MUST EXIST:
