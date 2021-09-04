@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Hello @${{ github.actor }} , thank you for submitting an issue! I am glad you are now a contributor. I will try to review it quickly. Please tell if you are willing to work on this issue or not.'
+        pr-message: 'Hello @${{ github.actor }} , thank you submitting a pull request! I am glad you are now a contributor. I will try to review it within the next few days. Please tell if you are willing to work on this issue or not.'
