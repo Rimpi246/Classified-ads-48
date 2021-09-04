@@ -1,4 +1,4 @@
-import { getDzStateNames } from "../../data/get-dz-state-names";
+import { getStateNames } from "../../data/get-state-names";
 import { autoComplete } from "./vendors/auto-complete.min";
 
 export const setupDelimitationsKeywords = async () => {
@@ -6,7 +6,7 @@ export const setupDelimitationsKeywords = async () => {
     if (! document.getElementsByName('div_q').length) {
       return resolve('rolling well');
     }
-    const names = getDzStateNames();
+    const names = getStateNames();
     // Autocomplete for governmental divisions
     // autoComplete is safe if input does not exist
     const divAutoComplete = new autoComplete({
