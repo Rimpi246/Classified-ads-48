@@ -12,5 +12,5 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Hello @${{ github.actor }} , thank you for submitting an issue! I am glad you are now a contributor. I will try to review it quickly. Please tell if you are willing to work on this issue or not.'
-        pr-message: 'Hello @${{ github.actor }} , thank you submitting a pull request! I am glad you are now a contributor. I will try to review it within the next few days. Please tell if you are willing to work on this issue or not.'
+        issue-message: 'Hello @${{ github.actor }} , thank you for submitting an issue! I am glad you are now a contributor; I will try to review this quickly. Please tell if you are willing to work on this issue or not. If you are participating in Hacktoberfest, you are supposed to resolve the issue yourself when assigned to you. If you want to work on this, please deploy a local version meanwhile and let me know if you need any help. Enjoy.'
+        pr-message: 'Hello @${{ github.actor }} , thank you for submitting a pull request! I am glad you are now a contributor; I will try to review this within the next few days. Since there are no automated tests yet, please deploy a local version of this pull request and go through pages as a regular user and see if your modifications work as expected on different screens and also did not result in any bugs. Do not worry if modifications are about: clean code, 1+1!=3, HTML or CSS and you are just sure about. Enjoy.'
