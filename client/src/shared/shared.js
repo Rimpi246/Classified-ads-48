@@ -30,13 +30,18 @@ export const setupShared = async () => {
     runToasts()
   ];
   const logPromises = (results) => results.forEach((result) => log.info(result));
+  const logErrors = (errors) => errors.forEach((error) => log.error(error));
   // Reject as soon as possible for dev environments
   // More permissive for production environment.
   // Counterintuitive huh ?
   if (['development', 'local'].includes(process.env.NODE_ENV))
-    Promise.all(promises).then((results) => logPromises(results));
+    Promise.all(promises)
+      .then((results) => logPromises(results))
+      .catch((errors) => logErrors(errors));
   else
-    Promise.allSettled(promises).then((results) => logPromises(results));    
+    Promise.allSettled(promises)
+      .then((results) => logPromises(results))
+      .catch((errors) => logErrors(errors));
   // Other function calls that are not yet promisified
   // because I'm not sure yet what's asynchronous in there
   setupMaps();

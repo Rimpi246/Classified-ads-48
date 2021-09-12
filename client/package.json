@@ -16,6 +16,7 @@
     "datatables.net-dt": "^1.1.0",
     "egalink-toasty.js": "^1.5.0",
     "font-picker": "^3.5.1",
+    "geojson-validation": "^1.0.2",
     "holmes.js": "^1.17.3",
     "leaflet": "1.7.1",
     "leaflet.fullscreen": "^2.0.0",

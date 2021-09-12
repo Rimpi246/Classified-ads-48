@@ -18,9 +18,24 @@ const devConfig = {
 
 const http = require('https'); // or 'https' for https:// URLs
 const fs = require('fs');
+const gjv = require("geojson-validation");
 
 const file1 = fs.createWriteStream("src/data/borders.json");
 const file2 = fs.createWriteStream("src/data/states.json");
+
+// const validateGEOJSONFile = (path) => {
+//   http.get(path, function(response) {
+//     response.pipe(file1);
+//     response.on("end", async function() {
+//       var geojson = JSON.parse(fs.readFileSync(path, "utf8"));
+//       if (!gjv.valid(geojson)) {
+//         console.error("GEOJSON is not valid:\n"+path);
+//         return false;
+//       }
+//     });
+//   });
+// }
+
 module.exports = {
   entry: {
     main: "./src/main.js",
@@ -49,19 +64,54 @@ module.exports = {
       },
     ]
   },
+  stats: {
+    preset: 'normal',
+    moduleTrace: true,
+    errorDetails: true,
+  },
   ...(isDevEnv && devConfig),
   plugins: [
     new WebpackBeforeBuildPlugin(function(stats, callback) {
       console.log("Environment variables:\n");
       console.log(Object.keys(envKeys.parsed));
       console.log("WebpackBeforeBuildPlugin: \nDownloading some data-sets\n");
+      // TODO: Decouple these two http.get calls
+      // into one accepting {url, filePath}
       http.get(process.env.BORDERS_FILE_URL, function(response) {
-        response.pipe(file1);
-        http.get(process.env.STATES_FILE_URL, function(response) {
-          response.pipe(file2);
-          console.log("WebpackBeforeBuildPlugin: \nSuccess!\nContinuing build process\n");
-          callback(); // don't call it if you do want to stop compilation
-        });
+          response.pipe(file1);
+          response.on("end", async function() {
+            try {
+              var geojson = JSON.parse(fs.readFileSync(file1.path, "utf8"));
+              if (!gjv.valid(geojson)) {
+                console.error("WebpackBeforeBuildPlugin: \nGEOJSON is not valid:\n"+process.env.BORDERS_FILE_URL);
+                process.exit();
+              }else{
+                console.log("GEOJSON is valid:\n"+process.env.BORDERS_FILE_URL);
+              }
+            } catch (error) {
+              console.error('WebpackBeforeBuildPlugin: \nFailed in checking GEOJSON\n ' + error.message);
+              process.exit();
+            }
+          });
+          http.get(process.env.STATES_FILE_URL, function(response) {
+            response.pipe(file2);
+            response.on("end", async function() {
+              try {
+                var geojson = JSON.parse(fs.readFileSync(file1.path, "utf8"));
+                if (!gjv.valid(geojson)) {
+                  console.error("WebpackBeforeBuildPlugin: \nGEOJSON is not valid:\n"+process.env.STATES_FILE_URL);
+                  process.exit();
+                }else{
+                  console.log("GEOJSON is valid:\n"+process.env.BORDERS_FILE_URL);
+                }
+              } catch (error) {
+                console.error('WebpackBeforeBuildPlugin: \nFailed in checking GEOJSON\n ' + error.message);
+                process.exit();
+              }
+            });
+            console.log("WebpackBeforeBuildPlugin: \nSuccess!\nContinuing build process\n");
+            callback(); // Must be called !! to continue compilation !!
+          });
       });
     }),
     new FileManagerPlugin({
