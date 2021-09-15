@@ -1,3 +1,5 @@
+<img src="https://github.com/bacloud14/Classified-ads-48/raw/gh-pages/imgonline-com-ua-twotoone-vGMROgalPMN.jpg" alt="cover" />
+
 ## Welcome to Classified-ads-48 
 
 Bringing to the web the idea of [classified advertising](https://www.wikiwand.com/en/Classified_advertising). Together with rich input forms and an [interactive map](https://leafletjs.com/), we hope to create a digital platform that scales for different categories (*sections*) and for a large load of accessing users. All with a simple navigation, [minimal subscription](https://www.wikiwand.com/en/Passwordless_authentication) and respecting user privacy.
